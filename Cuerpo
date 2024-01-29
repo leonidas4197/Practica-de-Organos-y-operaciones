@@ -28,5 +28,11 @@ public class Cuerpo {
 		
 		this.estado=(int)(Math.random()*2);
 	}
+		@Override
+		public String toString() {
+			return "Cuerpo [nombre=" + nombre + ", peso=" + peso + ", estado=" + estado + "]";
 
-}
+		}
+	}
+
+
