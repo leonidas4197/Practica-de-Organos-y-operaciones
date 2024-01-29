@@ -19,5 +19,14 @@ public class Cuerpo {
 	private String raza;
 	private int estado;
 	
-}
+	public Cuerpo() {
+		super();
+		// TODO Auto-generated constructor stub
+		this.nombre="Cuerpo";
+		this.peso=(int)(Math.random()*100);
+		this.edad=(int)(Math.random()*90);
+		
+		this.estado=(int)(Math.random()*2);
+	}
 
+}
