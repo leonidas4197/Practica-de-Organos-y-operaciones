@@ -1,13 +1,89 @@
-
 package Practica3Java;
 
 public class Raza {
 
 	//Variables miembro
+	public static int numR=0;
 	private String nombre;
 	private String descripcion;
 	private int altura;
 	private int pelo;
 	private int piel;
 	private String zona;
+	/**
+	 * @return the nombre
+	 */
+	public String getNombre() {
+		return nombre;
+	}
+	/**
+	 * @return the descripcion
+	 */
+	public String getDescripcion() {
+		return descripcion;
+	}
+	/**
+	 * @return the altura
+	 */
+	public int getAltura() {
+		return altura;
+	}
+	/**
+	 * @return the pelo
+	 */
+	public int getPelo() {
+		return pelo;
+	}
+	/**
+	 * @return the piel
+	 */
+	public int getPiel() {
+		return piel;
+	}
+	/**
+	 * @return the zona
+	 */
+	public String getZona() {
+		return zona;
+	}
+	/**
+	 * @param nombre the nombre to set
+	 */
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	/**
+	 * @param descripcion the descripcion to set
+	 */
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	/**
+	 * @param altura the altura to set
+	 */
+	public void setAltura(int altura) {
+		this.altura = altura;
+	}
+	/**
+	 * @param pelo the pelo to set
+	 */
+	public void setPelo(int pelo) {
+		this.pelo = pelo;
+	}
+	/**
+	 * @param piel the piel to set
+	 */
+	public void setPiel(int piel) {
+		this.piel = piel;
+	}
+	/**
+	 * @param zona the zona to set
+	 */
+	public void setZona(String zona) {
+		this.zona = zona;
+	}
+	
+	//Modificado creamos datos aleatorios cuando
+	//creamos una nueva raza
+	
 }
