@@ -1,1 +1,13 @@
 
+package Practica3Java;
+
+public class Raza {
+
+	//Variables miembro
+	private String nombre;
+	private String descripcion;
+	private int altura;
+	private int pelo;
+	private int piel;
+	private String zona;
+}
