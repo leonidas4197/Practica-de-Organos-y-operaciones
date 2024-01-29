@@ -6,7 +6,7 @@ public class Raza {
 	public static int numR=0;
 	private String nombre;
 	private String descripcion;
-	private int altura;
+	private String altura;
 	private int pelo;
 	private int piel;
 	private String zona;
@@ -61,7 +61,7 @@ public class Raza {
 	/**
 	 * @param altura the altura to set
 	 */
-	public void setAltura(int altura) {
+	public void setAltura(String altura) {
 		this.altura = altura;
 	}
 	/**
@@ -85,5 +85,12 @@ public class Raza {
 	
 	//Modificado creamos datos aleatorios cuando
 	//creamos una nueva raza
+	public Raza() {
+	super();
+	Raza.numR++;
+	this.nombre="Raza"+numR;
+	this.descripcion="Descripcion"+numR;
+	this.altura=((int)(Math.random()*190))+"cm";
 	
+	}
 }
