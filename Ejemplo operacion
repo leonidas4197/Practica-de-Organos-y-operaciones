@@ -1,0 +1,12 @@
+package Practica3Java;
+
+public class EjemploOperacion {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		//Escogemos una de las funciones
+	Cuerpo cuerpo=new Cuerpo();
+	System.out.println(cuerpo);
+}
+}
