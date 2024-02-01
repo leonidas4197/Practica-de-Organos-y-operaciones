@@ -1,38 +1,42 @@
-package Practica3Java;
+package PracticaUnidad3;
+
+import java.util.Arrays;
 
 public class Cuerpo {
-
-	//Constante con el número de organos que se usaran en el cuerpo
-	public static final int Num_Organos=8;
 	
-	private Organo listaOrganos[];
-	
-	//Constantes para el estado
-	public static final int VIVO = 0;
-	public static final int COMA = 1;
-	public static final int MUERTO = 2;
-	
-	//Variables miembro
-	private String nombre;
-	private double peso;
-	private int edad;
-	private String raza;
-	private int estado;
-	
-	public Cuerpo() {
-		super();
-		// TODO Auto-generated constructor stub
-		this.nombre="Cuerpo";
-		this.peso=(int)(Math.random()*100);
-		this.edad=(int)(Math.random()*90);
+	//Constante con el número de organos en el cuerpo
+	public static final int NUM_ORGANOS = 8;
+	 
+		//Constantes para el estado
+		public static final int VIVO = 0;
+		public static final int COMA = 1;
+		public static final int MUERTO = 2;
 		
-		this.estado=(int)(Math.random()*2);
-	}
-		@Override
-		public String toString() {
-			return "Cuerpo [nombre=" + nombre + ", peso=" + peso + ", estado=" + estado + "]";
-
+		//Variables miembro
+		private String nombre;
+		private double peso;
+		private int edad;
+		private String raza;
+		private int estado;
+		
+		private Organo listaOrganos[];
+		
+		public Cuerpo() {
+			super();
+			// TODO Auto-generated constructor stub
+			this.nombre="Cuerpo";
+			this.peso=(int)(Math.random()*100);
+			this.edad=(int)(Math.random()*90);
+			this.raza="Raza"+(int)(Math.random()*5);;
+			this.estado=(int)(Math.random()*2);
+			
+			//Definimos el tamaño del array de organos en el cuerpo
+			this.listaOrganos = new Organo[this.NUM_ORGANOS];
+			
 		}
-	}
-
-
+		
+			@Override
+			public String toString() {
+				return "Cuerpo [nombre=" + nombre + ", peso=" + peso + ", edad=" + edad + ", raza=" + raza + ", estado=" + estado +"]";
+}
+}		
