@@ -8,5 +8,11 @@ public class EjemploOperacion {
 		//Escogemos una de las funciones
 	Cuerpo cuerpo=new Cuerpo();
 	System.out.println(cuerpo);
+	
+	Organo organo=new Organo();
+	System.out.println(organo);
+	
+	Raza raza=new Raza();
+	System.out.println(raza);
 }
 }
