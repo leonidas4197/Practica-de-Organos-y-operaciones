@@ -1,147 +1,146 @@
-package Practica3Java;
+package PracticaUnidad3;
+
+import Unidad3.Jugador;
 
 public class Organo {
-
+	
 	//Constantes de cada estado del organo
-	public static final int SANO = 0;
-	public static final int DOLOR = 1;
-	public static final int PERJUDICADO = 2;
-	public static final int CANCERIGENO = 3;
-	
-	//Constante de cada posicion
-	public static final int  CABEZA= 0;
-	public static final int  TRONCOSUPERIOR= 1;
-	public static final int  TRONCOINFERIOR= 2;
-	
-	//Constante de la importancia vital de los organos
-	public static final int  VITAL= 0;
-	public static final int  BASICA= 1;
-	public static final int  SECUNDARIA= 2;
-	
-	//Constantes para el nombre de los organos
-	public static final int cerebro = 0;
-	public static final int corazon = 1;
-	public static final int rinion = 2;
-	public static final int pulmonizq = 3;
-	public static final int pulmonder = 4;
-	public static final int oidoizq = 5;
-	public static final int oidoder = 6;
-	public static final int estomago = 7;
-	
-	//Variables miembro
-	private int nombre;
-	public static int numOrgano;
-	private int funcion;
-	private String estado;
-	private double peso;
-	private String posicion;
-	private int importancia;
-	private String imagen;
-	public boolean activo;
-	/**
-	 * @return the nombre
-	 */
-	public int getNombre() {
-		return nombre;
+		public static final int SANO = 0;
+		public static final int DOLOR = 1;
+		public static final int PERJUDICADO = 2;
+		public static final int CANCERIGENO = 3;
+		
+		//Constante de cada posicion
+		public static final int  CABEZA= 0;
+		public static final int  TRONCOSUPERIOR= 1;
+		public static final int  TRONCOINFERIOR= 2;
+		
+		//Constante de la importancia vital de los organos
+		public static final int  VITAL= 0;
+		public static final int  BASICA= 1;
+		public static final int  SECUNDARIA= 2;
+		
+		//Variables miembro
+		public static int numOrgano =0;
+		private String nombre;
+		private int funcion;
+		private int estado;
+		private double peso;
+		private int posicion;
+		private int importancia;
+		private String imagen;
+		private boolean activo=false;
+		
+		public String getNombre() {
+			return nombre;
+		}
+
+
+
+		public void setNombre(String nombre) {
+			this.nombre = nombre;
+		}
+
+
+
+		public int getFuncion() {
+			return funcion;
+		}
+
+
+
+		public void setFuncion(int funcion) {
+			this.funcion = funcion;
+		}
+
+
+
+		public int getEstado() {
+			return estado;
+		}
+
+
+
+		public void setEstado(int estado) {
+			this.estado = estado;
+		}
+
+
+
+		public double getPeso() {
+			return peso;
+		}
+
+
+
+		public void setPeso(double peso) {
+			this.peso = peso;
+		}
+
+
+
+		public int getPosicion() {
+			return posicion;
+		}
+
+
+
+		public void setPosicion(int posicion) {
+			this.posicion = posicion;
+		}
+
+
+
+		public int getImportancia() {
+			return importancia;
+		}
+
+
+
+		public void setImportancia(int importancia) {
+			this.importancia = importancia;
+		}
+
+
+
+		public String getImagen() {
+			return imagen;
+		}
+
+
+
+		public void setImagen(String imagen) {
+			this.imagen = imagen;
+		}
+		//Modificando creamos datos aleatorios cuando
+		//creamos un nuevo organo
+	    public Organo() {
+	    	super();
+	    	Organo.numOrgano++;
+	    	this.nombre= nombre;
+	    	this.funcion = funcion;
+			this.estado = (int) (Math.random()*4);
+			this.peso = (int) (Math.random()*800)+200;
+			this.posicion = (int) (Math.random()*3);
+			this.importancia = (int) (Math.random()*3);
+			this.imagen = "imagen"+ numOrgano;
+	    }
+	    	public Organo(String nombre, int funcion, int estado, double peso, int posicion, int importancia, String imagen ) {
+				super();
+				Jugador.numJ++;
+				this.nombre = nombre;
+				this.funcion = funcion;
+				this.estado = estado;
+				this.peso = peso;
+				this.posicion = posicion;
+				this.importancia = importancia;
+				this.imagen = imagen;
+	    }
+	    	
+	    	@Override
+	    	public String toString() {
+	    		return "Organo [nombre=" + nombre + ", funcion=" + funcion + ", estado=" + estado
+						+ ", peso=" + peso + ", posicion=" + posicion + ", importancia=" + importancia + ", imagen=" + imagen + "]";
+	    }
+	    
 	}
-	/**
-	 * @return the numOrgano
-	 */
-	public int getNumOrgano() {
-		return numOrgano;
-	}
-	/**
-	 * @return the funcion
-	 */
-	public int getFuncion() {
-		return funcion;
-	}
-	/**
-	 * @return the estado
-	 */
-	public String getEstado() {
-		return estado;
-	}
-	/**
-	 * @return the peso
-	 */
-	public double getPeso() {
-		return peso;
-	}
-	/**
-	 * @return the posicion
-	 */
-	public String getPosicion() {
-		return posicion;
-	}
-	/**
-	 * @return the importancia
-	 */
-	public int getImportancia() {
-		return importancia;
-	}
-	/**
-	 * @return the imagen
-	 */
-	public String getImagen() {
-		return imagen;
-	}
-	/**
-	 * @param nombre the nombre to set
-	 */
-	public void setNombre(int nombre) {
-		this.nombre = nombre;
-	}
-	/**
-	 * @param numOrgano the numOrgano to set
-	 */
-	public void setNumOrgano(int numOrgano) {
-		this.numOrgano = numOrgano;
-	}
-	/**
-	 * @param funcion the funcion to set
-	 */
-	public void setFuncion(int funcion) {
-		this.funcion = funcion;
-	}
-	/**
-	 * @param estado the estado to set
-	 */
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-	/**
-	 * @param peso the peso to set
-	 */
-	public void setPeso(double peso) {
-		this.peso = peso;
-	}
-	/**
-	 * @param posicion the posicion to set
-	 */
-	public void setPosicion(String posicion) {
-		this.posicion = posicion;
-	}
-	/**
-	 * @param importancia the importancia to set
-	 */
-	public void setImportancia(int importancia) {
-		this.importancia = importancia;
-	}
-	/**
-	 * @param imagen the imagen to set
-	 */
-	public void setImagen(String imagen) {
-		this.imagen = imagen;
-	}
-	//Modificando creamos datos aleatorios cuando
-	//creamos un nuevo jugador
-    public Organo() {
-    	super();
-    	Organo.numOrgano++;
-    	this.nombre= (int) (Math.random()*7);
-    	this.importancia = (int) (Math.random()*3);
-    	
-    }
-    
-}
