@@ -25,7 +25,7 @@ public class Raza {
 	/**
 	 * @return the altura
 	 */
-	public int getAltura() {
+	public String getAltura() {
 		return altura;
 	}
 	/**
