@@ -1,7 +1,5 @@
 package PracticaUnidad3;
 
-import Unidad3.Jugador;
-
 public class Organo {
 	
 	//Constantes de cada estado del organo
@@ -127,7 +125,7 @@ public class Organo {
 	    }
 	    	public Organo(String nombre, int funcion, int estado, double peso, int posicion, int importancia, String imagen ) {
 				super();
-				Jugador.numJ++;
+				Organo.numO++;
 				this.nombre = nombre;
 				this.funcion = funcion;
 				this.estado = estado;
