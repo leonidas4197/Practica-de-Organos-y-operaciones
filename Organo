@@ -125,11 +125,32 @@ public class Organo {
 			
 			int numOrgano=(int)(Math.random()*8);
 			
-			
-			
-			
-			
-			
+			switch(numOrgano) {
+			case 0:
+				this.nombre ="cerebro";
+			    break;
+			case 1:
+				this.nombre="corzaon";
+				break;
+			case 2:
+				this.nombre="riñon derecho";
+				break;
+			case 3:
+				this.nombre="riñon izquierdo";
+				break;
+			case 4:
+				this.nombre="pulmon derecho";
+				break;
+			case 5:
+				this.nombre="pulmon izquierdo";
+				break;
+			case 6:
+				this.nombre="oido";
+				break;
+			case 7:
+				this.nombre="estomago";
+				break;
+			}
 	    }
 	    	public Organo(String nombre, int funcion, int estado, double peso, int posicion, int importancia, String imagen ) {
 				super();
