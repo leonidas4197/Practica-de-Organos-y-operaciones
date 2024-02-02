@@ -1,18 +1,19 @@
-package Practica3Java;
+package PracticaUnidad3;
+
+import java.util.Arrays;
 
 public class EjemploOperacion {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		
 		//Escogemos una de las funciones
-	Cuerpo cuerpo=new Cuerpo();
-	System.out.println(cuerpo);
-	
-	Organo organo=new Organo();
-	System.out.println(organo);
-	
-	Raza raza=new Raza();
-	System.out.println(raza);
-}
+		Cuerpo cuerpo=new Cuerpo();
+		System.out.println(cuerpo);
+		
+		Raza raza=new Raza();
+		System.out.println(raza);
+		
+	}
+
 }
