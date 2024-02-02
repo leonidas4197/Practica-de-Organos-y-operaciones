@@ -1,8 +1,10 @@
-package Practica3Java;
+package PracticaUnidad3;
 
 import java.util.Arrays;
 
-public class Cuerpo {
+import Unidad3.Jugador;
+
+public class Cuerpo{
 	
 	//Constante con el número de organos en el cuerpo
 	public static final int NUM_ORGANOS = 8;
@@ -21,6 +23,103 @@ public class Cuerpo {
 		
 		private Organo listaOrganos[];
 		
+		/**
+		 * 
+		 * Funcion que recibe un Organo y lo añade a
+		 * nuestra lista de Organos ,buscara el primer
+		 * espacio vacio de nuestro array para insertarlo
+		 * 
+		 * @param nuevoOrgano
+		 * @return
+		 */
+		public int addOrganoJugador(Organo nuevoOrgano) {
+			for (int i = 0; i < this.listaOrganos.length; i++) {
+				// Buscamos la primera posicion nula
+				if (this.listaOrganos[i] == null) {
+					// Cuando encontramos el hueco metemos
+					// al jugador y salimos
+					this.listaOrganos[i] = nuevoOrgano;
+					return 0;
+			 }
+		   }
+			// Si no hay hueco damos fallo
+			return -1;
+		}
+		
+		
+		
+		public String getNombre() {
+			return nombre;
+		}
+
+
+
+		public void setNombre(String nombre) {
+			this.nombre = nombre;
+		}
+
+
+
+		public double getPeso() {
+			return peso;
+		}
+
+
+
+		public void setPeso(double peso) {
+			this.peso = peso;
+		}
+
+
+
+		public int getEdad() {
+			return edad;
+		}
+
+
+
+		public void setEdad(int edad) {
+			this.edad = edad;
+		}
+
+
+
+		public String getRaza() {
+			return raza;
+		}
+
+
+
+		public void setRaza(String raza) {
+			this.raza = raza;
+		}
+
+
+
+		public int getEstado() {
+			return estado;
+		}
+
+
+
+		public void setEstado(int estado) {
+			this.estado = estado;
+		}
+
+
+
+		public Organo[] getListaOrganos() {
+			return listaOrganos;
+		}
+
+
+
+		public void setListaOrganos(Organo[] listaOrganos) {
+			this.listaOrganos = listaOrganos;
+		}
+
+
+
 		public Cuerpo() {
 			super();
 			// TODO Auto-generated constructor stub
@@ -30,13 +129,21 @@ public class Cuerpo {
 			this.raza="Raza"+(int)(Math.random()*5);;
 			this.estado=(int)(Math.random()*2);
 			
-			//Definimos el tamaño del array de organos en el cuerpo
-			this.listaOrganos = new Organo[this.NUM_ORGANOS];
+			//Creamos 8 organos aleatorios
 			
+			//Inicializamos el array de Organos a 8 posiciones
+			this.listaOrganos = new Organo[8];
+			// Hacemos un bucle para recorrer todas las posiciones del array de jugadores
+			for (int i = 0; i < listaOrganos.length; i++) {
+				// Crea un jugador nuevo aleatorio
+				Organo NewOrg = new Organo();
+				// Metemos el nuevo juegador creado en una
+				// posicion i del array de jugadores
+				listaOrganos[i] = NewOrg;
 		}
-		
+		}
 			@Override
 			public String toString() {
-				return "Cuerpo [nombre=" + nombre + ", peso=" + peso + ", edad=" + edad + ", raza=" + raza + ", estado=" + estado +"]";
+				return "Cuerpo [nombre=" + nombre + ", peso=" + peso + ", edad=" + edad + ", raza=" + raza + ", estado=" + estado +"]"+ Arrays.toString(listaOrganos)+"]";
 }
 }		
