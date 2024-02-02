@@ -1,6 +1,8 @@
-package Practica3Java;
+package PracticaUnidad3;
 
-public class Organo {
+import Unidad3.Equipo;
+
+public class Organo{
 	
 	//Constantes de cada estado del organo
 		public static final int SANO = 0;
@@ -161,12 +163,27 @@ public class Organo {
 				this.posicion = posicion;
 				this.importancia = importancia;
 				this.imagen = imagen;
-	    }
+	    }    	
+	    	public boolean revision() {
+	    	//Creamos la primera funcion llamada revisión
 	    	
+	    		if ((nombre.equals("cerebro") && posicion==0 && importancia==0) ||
+	    	            (nombre.equals("corazon") && posicion==1 && importancia==0) ||
+	    	            (nombre.equals("riñon izquierdo") && posicion==2 && importancia==1) ||
+	    	            (nombre.equals("riñon derecho") && posicion==2 && importancia==1) ||
+	    	            (nombre.equals("pulmon izquierdo") && posicion==1 && importancia==0) ||
+	    	            (nombre.equals("pulmon derecho") && posicion==1 && importancia==0) ||
+	    	            (nombre.equals("oido") && posicion==0 && importancia==2) ||
+	    	            (nombre.equals("estomago") && posicion==2 && importancia==2)) {
+	    	            return true;
+	    	        } else {
+	    	            return false;
+	    	        }
+	    	    }
 	    	@Override
 	    	public String toString() {
 	    		return "Organo [nombre=" + nombre + ", funcion=" + funcion + ", estado=" + estado
-						+ ", peso=" + peso + ", posicion=" + posicion + ", importancia=" + importancia + ", imagen=" + imagen + "]";
+						+ ", peso=" + peso + ", posicion=" + posicion + ", importancia=" + importancia + ", imagen=" + imagen + ",revision=" + revision() +"]";
 	    }
 	    
 	}
