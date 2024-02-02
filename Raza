@@ -1,104 +1,102 @@
-package Practica3Java;
+package PracticaUnidad3;
 
 public class Raza {
-
-	//Variables miembro
-	public static int numR=0;
-	private String nombre;
-	private String descripcion;
-	private String altura;
-	private String pelo;
-	private String piel;
-	private String zona;
-	/**
-	 * @return the nombre
-	 */
-	public String getNombre() {
-		return nombre;
-	}
-	/**
-	 * @return the descripcion
-	 */
-	public String getDescripcion() {
-		return descripcion;
-	}
-	/**
-	 * @return the altura
-	 */
-	public String getAltura() {
-		return altura;
-	}
-	/**
-	 * @return the pelo
-	 */
-	public String getPelo() {
-		return pelo;
-	}
-	/**
-	 * @return the piel
-	 */
-	public String getPiel() {
-		return piel;
-	}
-	/**
-	 * @return the zona
-	 */
-	public String getZona() {
-		return zona;
-	}
-	/**
-	 * @param nombre the nombre to set
-	 */
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	/**
-	 * @param descripcion the descripcion to set
-	 */
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
-	/**
-	 * @param altura the altura to set
-	 */
-	public void setAltura(String altura) {
-		this.altura = altura;
-	}
-	/**
-	 * @param pelo the pelo to set
-	 */
-	public void setPelo(String pelo) {
-		this.pelo = pelo;
-	}
-	/**
-	 * @param piel the piel to set
-	 */
-	public void setPiel(String piel) {
-		this.piel = piel;
-	}
-	/**
-	 * @param zona the zona to set
-	 */
-	public void setZona(String zona) {
-		this.zona = zona;
-	}
 	
-	//Modificado creamos datos aleatorios cuando
-	//creamos una nueva raza
-	public Raza() {
-	super();
-	Raza.numR++;
-	this.nombre="Raza"+numR;
-	this.descripcion="Descripcion"+numR;
-	this.altura=((int)(Math.random()*190))+"cm";
-	this.pelo="Pelo"+numR;
-	this.piel="Piel"+numR;
-	this.zona="Zona"+numR;
+	//Variables miembro
+		public static int numR=0;
+		private String nombre;
+		private String descripcion;
+		private String altura;
+		private String pelo;
+		private String piel;
+		private String zona;
+		/**
+		 * @return the nombre
+		 */
+		public String getNombre() {
+			return nombre;
+		}
+		/**
+		 * @return the descripcion
+		 */
+		public String getDescripcion() {
+			return descripcion;
+		}
+		/**
+		 * @return the altura
+		 */
+		public String getAltura() {
+			return altura;
+		}
+		/**
+		 * @return the pelo
+		 */
+		public String getPelo() {
+			return pelo;
+		}
+		/**
+		 * @return the piel
+		 */
+		public String getPiel() {
+			return piel;
+		}
+		/**
+		 * @return the zona
+		 */
+		public String getZona() {
+			return zona;
+		}
+		/**
+		 * @param nombre the nombre to set
+		 */
+		public void setNombre(String nombre) {
+			this.nombre = nombre;
+		}
+		/**
+		 * @param descripcion the descripcion to set
+		 */
+		public void setDescripcion(String descripcion) {
+			this.descripcion = descripcion;
+		}
+		/**
+		 * @param altura the altura to set
+		 */
+		public void setAltura(String altura) {
+			this.altura = altura;
+		}
+		/**
+		 * @param pelo the pelo to set
+		 */
+		public void setPelo(String pelo) {
+			this.pelo = pelo;
+		}
+		/**
+		 * @param piel the piel to set
+		 */
+		public void setPiel(String piel) {
+			this.piel = piel;
+		}
+		/**
+		 * @param zona the zona to set
+		 */
+		public void setZona(String zona) {
+			this.zona = zona;
+		}
+		
+		//Modificado creamos datos aleatorios cuando
+		//creamos una nueva raza
+		public Raza() {
+		super();
+		Raza.numR++;
+		this.nombre="Raza"+numR;
+		this.descripcion="Descripcion"+numR;
+		this.altura=((int)(Math.random()*190))+"cm";
+		this.pelo="Pelo"+numR;
+		this.piel="Piel"+numR;
+		this.zona="Zona"+numR;
+		}
+		@Override
+		public String toString() {
+			return "Raza [nombre=" + nombre + ", descripcion=" + descripcion + ", altura=" + altura + ", pelo=" + pelo + ", piel=" + piel + ", zona=" + zona + "]]";
 	}
-	@Override
-	public String toString() {
-		return "Raza [nombre=" + nombre + ", descripcion=" + descripcion + ", altura=" + altura
-				+ ", pelo=" + pelo + ", piel=" + piel + ", zona=" + zona+ "]";
-}
-
 }
