@@ -1,8 +1,6 @@
-package PracticaUnidad3;
+package Tema3Programacion;
 
-import Unidad3.Equipo;
-
-public class Organo{
+public class Organo {
 	
 	//Constantes de cada estado del organo
 		public static final int SANO = 0;
@@ -180,6 +178,31 @@ public class Organo{
 	    	            return false;
 	    	        }
 	    	    }
+	    	public boolean analisis(int tipoAnalisis) {
+	    	    switch(tipoAnalisis) {
+	    	        case 1: // Análisis oncológico
+	    	            if (estado == Organo.CANCERIGENO) {
+	    	                return true; // Positivo
+	    	            } else {
+	    	                return false; // No cancerígeno
+	    	            }
+	    	        case 2: // Análisis de estado
+	    	            if (estado == Organo.PERJUDICADO) {
+	    	                return true; // Positivo
+	    	            } else {
+	    	                return false; // No perjudicado
+	    	            }
+	    	        case 3: // Análisis rutinario
+	    	            if (peso > 200 && peso < 1000) {
+	    	                return false; // Peso dentro del rango normal
+	    	            } else {
+	    	                return true; // Peso fuera del rango normal
+	    	            }
+	    	        default:
+	    	            System.out.println("Tipo de análisis no válido");
+	    	            return false;
+	    	    }
+	    	}
 	    	@Override
 	    	public String toString() {
 	    		return "Organo [nombre=" + nombre + ", funcion=" + funcion + ", estado=" + estado
@@ -187,3 +210,4 @@ public class Organo{
 	    }
 	    
 	}
+
