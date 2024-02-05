@@ -1,10 +1,8 @@
-package PracticaUnidad3;
+package Tema3Programacion;
 
 import java.util.Arrays;
 
-import Unidad3.Jugador;
-
-public class Cuerpo{
+public class Cuerpo {
 	
 	//Constante con el número de organos en el cuerpo
 	public static final int NUM_ORGANOS = 8;
@@ -32,7 +30,7 @@ public class Cuerpo{
 		 * @param nuevoOrgano
 		 * @return
 		 */
-		public int addOrganoJugador(Organo nuevoOrgano) {
+		public int addOrgano(Organo nuevoOrgano) {
 			for (int i = 0; i < this.listaOrganos.length; i++) {
 				// Buscamos la primera posicion nula
 				if (this.listaOrganos[i] == null) {
@@ -142,6 +140,130 @@ public class Cuerpo{
 				listaOrganos[i] = NewOrg;
 		}
 		}
+		 public int trasplante(Organo O) {
+		        // Fase 1: Comprobación de Viabilidad
+		        boolean encontrado = false;
+		        int indiceOrganoAntiguo = -1;
+		        for (int i = 0; i < listaOrganos.length; i++) {
+		            if (listaOrganos[i] != null && listaOrganos[i].getNombre().equals(O.getNombre())) {
+		                // Verificamos la posición del órgano y si está sano
+		                if (listaOrganos[i].revision() && listaOrganos[i].getEstado() == Organo.SANO &&
+		                        (O.getEstado() == Organo.PERJUDICADO || O.getEstado() == Organo.CANCERIGENO)) {
+		                    encontrado = true;
+		                    indiceOrganoAntiguo = i;
+		                    break;
+		                }
+		            }
+		        }
+
+		        if (!encontrado || indiceOrganoAntiguo == -1) {
+		            return -1; // No se cumplen las condiciones para el trasplante
+		        }
+
+		        // Si el órgano a trasplantar y el órgano trasplantado están perjudicados o son cancerígenos, el cuerpo morirá
+		        if ((O.getEstado() == Organo.PERJUDICADO || O.getEstado() == Organo.CANCERIGENO) &&
+		                (listaOrganos[indiceOrganoAntiguo].getEstado() == Organo.PERJUDICADO || listaOrganos[indiceOrganoAntiguo].getEstado() == Organo.CANCERIGENO)) {
+		            return -1;
+		        }
+
+		        // Fase 2: Trasplante
+		        listaOrganos[indiceOrganoAntiguo] = O;
+		        return 0; // Todo ha ido bien
+		    }
+		 public Organo cura(Organo O) {
+		        // Revisión del órgano
+		        if (!O.revision()) {
+		            return null; // La revisión no es correcta
+		        }
+
+		        // Análisis para órganos cancerígenos
+		        if (O.getEstado() == Organo.CANCERIGENO) {
+		            if (O.getPeso() >= 200 && O.getPeso() <= 1000) {
+		                // Operación
+		                if (Math.random() <= 0.65) {
+		                    O.setEstado(Organo.SANO);
+		                    return O; // Órgano curado
+		                } else {
+		                    return null; // La operación ha fallado
+		                }
+		            } else {
+		                return null; // No cumple con el peso para ser curado
+		            }
+		        }
+
+		        // Análisis para órganos perjudicados
+		        if (O.getEstado() == Organo.PERJUDICADO) {
+		            // Excepción para el cerebro y el corazón
+		            if (O.getNombre().equals("cerebro") || O.getNombre().equals("corazon")) {
+		                return null; // No se puede curar el cerebro o el corazón
+		            }
+		            // Operación
+		            if (Math.random() <= 0.9) {
+		                O.setEstado(Organo.SANO);
+		                return O; // Órgano curado
+		            } else {
+		                return null; // La operación ha fallado
+		            }
+		        }
+
+		        // Si no es ni cancerígeno ni perjudicado, devolvemos null
+		        return null;
+		    }
+		  public boolean oncologia() {
+		        for (Organo organo : listaOrganos) {
+		            if (organo != null && organo.getEstado() == Organo.CANCERIGENO) {
+		                return true; // Hay al menos un órgano cancerígeno
+		            }
+		        }
+		        return false; // No hay órganos cancerígenos
+		    }
+		  public int revisionGeneral() {
+			    boolean dolorDeCabeza = false;
+			    boolean riñonesPerjudicados = false;
+			    boolean oidoPerjudicado = false;
+			    boolean cerebroPerjudicado = false;
+			    boolean pulmonesPerjudicados = false;
+			    boolean estomagoConDolor = false;
+			    boolean algunOrganoConCancer = false;
+
+			    // Comprobación de cada órgano
+			    for (Organo organo : listaOrganos) {
+			        if (organo != null) {
+			            if (organo.getEstado() == Organo.DOLOR && organo.getPosicion() == Organo.CABEZA) {
+			                dolorDeCabeza = true;
+			            } else if (organo.getEstado() == Organo.PERJUDICADO) {
+			                if (organo.getNombre().equalsIgnoreCase("riñon derecho") || organo.getNombre().equalsIgnoreCase("riñon izquierdo")) {
+			                    riñonesPerjudicados = true;
+			                } else if (organo.getNombre().equalsIgnoreCase("oido")) {
+			                    oidoPerjudicado = true;
+			                } else if (organo.getNombre().equalsIgnoreCase("cerebro")) {
+			                    cerebroPerjudicado = true;
+			                } else if (organo.getNombre().equalsIgnoreCase("pulmon derecho") || organo.getNombre().equalsIgnoreCase("pulmon izquierdo")) {
+			                    pulmonesPerjudicados = true;
+			                } else if (organo.getNombre().equalsIgnoreCase("estomago")) {
+			                    estomagoConDolor = true;
+			                }
+			            } else if (organo.getEstado() == Organo.CANCERIGENO) {
+			                algunOrganoConCancer = true;
+			            }
+			        }
+			    }
+
+			    // Verificación de enfermedades
+			    if (algunOrganoConCancer) {
+			        return 5; // Cáncer
+			    } else if (dolorDeCabeza && riñonesPerjudicados) {
+			        return 1; // Malaria
+			    } else if (oidoPerjudicado && cerebroPerjudicado) {
+			        return 2; // Parkinson
+			    } else if (dolorDeCabeza && pulmonesPerjudicados) {
+			        return 3; // Bronquitis
+			    } else if (dolorDeCabeza && estomagoConDolor && pulmonesPerjudicados) {
+			        return 4; // Gripe
+			    } else {
+			        return 6; // Sano
+			    }
+			}
 			@Override
 			public String toString() {
 				return "Cuerpo [nombre=" + nombre + ", peso=" + peso + ", edad=" + edad + ", raza=" + raza + ", estado=" + estado +"]"+ Arrays.toString(listaOrganos)+"]";
