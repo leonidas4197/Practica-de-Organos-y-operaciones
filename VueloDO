@@ -1,0 +1,156 @@
+package Unidad5;
+
+public class VueloDO {
+	
+private int numVuelo;
+private String fechaSalida;
+private String fechaLlegada;
+private String horaSalida;
+private String horaLlegada;
+private int asientosDisponibles;
+private String aerolinea;
+private String pais;
+	
+
+public VueloDO() {
+	super();
+	// TODO Auto-generated constructor stub
+}
+
+
+/**
+ * @return the numVuelo
+ */
+public int getNumVuelo() {
+	return numVuelo;
+}
+
+
+/**
+ * @return the fechaSalida
+ */
+public String getFechaSalida() {
+	return fechaSalida;
+}
+
+
+/**
+ * @return the fechaLlegada
+ */
+public String getFechaLlegada() {
+	return fechaLlegada;
+}
+
+
+/**
+ * @return the horaSalida
+ */
+public String getHoraSalida() {
+	return horaSalida;
+}
+
+
+/**
+ * @return the horaLlegada
+ */
+public String getHoraLlegada() {
+	return horaLlegada;
+}
+
+
+/**
+ * @return the asientosDisponibles
+ */
+public int getAsientosDisponibles() {
+	return asientosDisponibles;
+}
+
+
+/**
+ * @return the aerolinea
+ */
+public String getAerolinea() {
+	return aerolinea;
+}
+
+
+/**
+ * @return the pais
+ */
+public String getPais() {
+	return pais;
+}
+
+
+/**
+ * @param numVuelo the numVuelo to set
+ */
+public void setNumVuelo(int numVuelo) {
+	this.numVuelo = numVuelo;
+}
+
+
+/**
+ * @param fechaSalida the fechaSalida to set
+ */
+public void setFechaSalida(String fechaSalida) {
+	this.fechaSalida = fechaSalida;
+}
+
+
+/**
+ * @param fechaLlegada the fechaLlegada to set
+ */
+public void setFechaLlegada(String fechaLlegada) {
+	this.fechaLlegada = fechaLlegada;
+}
+
+
+/**
+ * @param horaSalida the horaSalida to set
+ */
+public void setHoraSalida(String horaSalida) {
+	this.horaSalida = horaSalida;
+}
+
+
+/**
+ * @param horaLlegada the horaLlegada to set
+ */
+public void setHoraLlegada(String horaLlegada) {
+	this.horaLlegada = horaLlegada;
+}
+
+
+/**
+ * @param asientosDisponibles the asientosDisponibles to set
+ */
+public void setAsientosDisponibles(int asientosDisponibles) {
+	this.asientosDisponibles = asientosDisponibles;
+}
+
+
+/**
+ * @param aerolinea the aerolinea to set
+ */
+public void setAerolinea(String aerolinea) {
+	this.aerolinea = aerolinea;
+}
+
+
+/**
+ * @param pais the pais to set
+ */
+public void setPais(String pais) {
+	this.pais = pais;
+}
+
+
+@Override
+public String toString() {
+	return "VueloDO [numVuelo=" + numVuelo + ", fechaSalida=" + fechaSalida + ", fechaLlegada=" + fechaLlegada
+			+ ", horaSalida=" + horaSalida + ", horaLlegada=" + horaLlegada + ", asientosDisponibles="
+			+ asientosDisponibles + ", aerolinea=" + aerolinea + ", pais=" + pais + "]";
+}
+
+}
