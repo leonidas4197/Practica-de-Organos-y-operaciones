@@ -1,0 +1,72 @@
+package model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+public class VueloDAO {
+
+	/**
+     * La función recibe una conexión y muestra los datos de todos los vuelos.
+     *
+     * @param con la conexión a la base de datos.
+	 * @return 
+     */
+
+    
+    private void mostrarVuelos(Connection con) {
+        try {
+            // Crear una pestaña para mostrar los vuelos
+            TabPane tabPane = new TabPane();
+            Statement statement = con.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM vuelo");
+
+            while (resultSet.next()) {
+                // Crear una nueva pestaña para cada vuelo
+                Tab tab = new Tab("Vuelo " + resultSet.getInt("numVuelo"));
+
+                // Crear el contenido de la pestaña con la información del vuelo
+                VBox vueloInfo = new VBox(10);
+                vueloInfo.getChildren().addAll(
+                        new Label("Número de vuelo: " + resultSet.getInt("numVuelo")),
+                        new Label("Fecha de salida: " + resultSet.getString("fechaSalida")),
+                        new Label("Fecha de llegada: " +resultSet.getString("fechaLlegada")),
+                        new Label("Hora de salida: " + resultSet.getString("horaSalida")),
+                        new Label("Hora de llegada: " + resultSet.getString("horaLlegada")),
+                        new Label("Aeropuerto de salida: " + resultSet.getString("aeropuertoSalida")),
+                        new Label("Aeropuerto de llegada: " + resultSet.getString("aeropuertoLlegada")),
+                        new Label("Asientos disponibles: " + resultSet.getInt("asientosDisponibles")),
+                        new Label("Aerolínea: " + resultSet.getString("aerolinea"))
+                );
+
+                ScrollPane scrollPane = new ScrollPane();
+                scrollPane.setContent(vueloInfo);
+                tab.setContent(scrollPane);
+
+                // Agregar la pestaña al TabPane
+                tabPane.getTabs().add(tab);
+            }
+
+            // Mostrar el TabPane en una nueva ventana
+            Stage stage = new Stage();
+            stage.setScene(new Scene(tabPane, 600, 400));
+            stage.setTitle("Información de Vuelos");
+            stage.show();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+}
