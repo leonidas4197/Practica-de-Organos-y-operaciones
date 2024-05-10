@@ -1,0 +1,52 @@
+package app;
+
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+
+public class Menu extends App {
+
+	public Menu(String string) {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void start(Stage stage) {
+
+		// Creamos el panel principal
+		BorderPane pnlDistribucion = new BorderPane();
+
+		// ZONA SUPERIOR MENU
+		Label lblMenu = new Label("Menu");
+
+		// Barra de menus principal
+		MenuBar barraMenu = new MenuBar();
+
+		// Menus que van en la barra de menus
+		Menu mArchivo = new Menu("Archivo");
+		Menu mComponentes = new Menu("Componentes");
+		Menu mAyuda = new Menu("Ayuda");
+
+		// Creamos las opciones que estaran dentro de cada menu
+
+		MenuItem ICargar = new MenuItem("Cargar");
+		MenuItem IGuardar = new MenuItem("Guardar");
+		MenuItem ISalir = new MenuItem("Salir");
+
+		MenuItem ITarjetas = new MenuItem("Tarjetas Graficas");
+		MenuItem IMicroprocesadores = new MenuItem("Microprocesadores");
+		MenuItem IMemoria = new MenuItem("Memoria");
+
+		MenuItem IAcerca = new MenuItem("Acerca de");
+		MenuItem IContacto = new MenuItem("Contacto");
+
+		// Asignamos los items a los respectivos menus
+		mArchivo.getItems().addAll(ICargar, IGuardar, ISalir);
+		mComponentes.getItems().addAll(ITarjetas, IMicroprocesadores, IMemoria);
+		mAyuda.getItems().addAll(IAcerca, IContacto);
+
+	}
+
+}
