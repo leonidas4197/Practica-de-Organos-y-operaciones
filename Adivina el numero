@@ -47,7 +47,7 @@ if ($intento === $_SESSION["numero"]) {
     } else {
         echo "<p>El número es menor.</p>";
     }
-    echo "<p>Te quedan ". (6 - $_SESSION['intentos']) ."intentos restantes .</p>";
+    echo "<p>Te quedan ". (6 - $_SESSION['intentos']) ." intentos restantes .</p>";
      }
 }
 
