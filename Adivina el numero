@@ -32,7 +32,7 @@ $_SESSION["intentos"]++;
 
 //Comprobamos si el número ingresado es correcto
 if ($intento === $_SESSION["numero"]) {
-    echo "<p>¡Felicidades :D ! Adivinaste el número {$_SESSION["numero"]} en {$_SESSION["intentos"]} intentos.</p>";
+    echo "<p>¡Felicidades =D ! Adivinaste el número {$_SESSION["numero"]} en {$_SESSION["intentos"]} intentos.</p>";
     session_destroy();
 } elseif ($_SESSION['intentos'] >= 6 ) {
   echo"<p>Haz agotado todos tus intentos. El número era {$_SESSION["numero"]}.</p>";
