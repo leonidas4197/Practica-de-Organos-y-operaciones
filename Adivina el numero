@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivina el número</title>
+</head>
+<body>
+
+<div class="mb-3">
+  <label for="numero" class="form-label">Inserte un número</label>
+  <input type="number" class="form-control" id="numero_usuario" min="1" max="100">
+</div>
+
+<?php
+session_start();
+
+//Verificamos si ya hay un número generado, en caso de que no exista
+//generamos al azar un número entre 1 y 100
+if(!isset($_SESSION["numero"])) {
+    $_SESSION["numero"] = rand(1,100);
+    $_SESSION["intentos"]= 0;
+}
+
+//Comprobamos si se ha hecho un intento 
+if(!isset($_POST["numero_usuario"])) {
+$intento = (int)$_POST["numero_usuario"];
+$_SESSION["intentos"]++;
+
+//Comprobamos si el número ingresado es correcto
+if ($intento === $_SESSION["numero"]) {
+    echo "<p>¡Felicidades :D ! Adivinaste el número {$_SESSION["numero"]} en {$_SESSION["intentos"]} intentos.</p>";
+    session_destroy();
+} elseif ($_SESSION['intentos'] >= 6 ) {
+  echo"<p>Haz agotado todos tus intentos. El número era {$SESSION["numero"]}.</p>";
+    session_destroy();
+}  else {
+    //Vamos dando las pistas
+    $diferencia = abs($_SESSION["numero"] - $intento);
+    if ($diferencia < 5){
+        echo "<p>Calentito totalis!</p>";
+    } elseif ($intento < $_SESSION["numero"]) {
+        echo "<p>El número es mayor.</p>";
+    } else {
+        echo "<p>El número es menor.</p>";
+    }
+    echo "<p>Te quedan ". (6 - $_SESSION['intentos']) ."intentos restantes .</p>";
+     }
+}
+
+?>
+
+</body>
+</html>
